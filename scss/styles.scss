@@ -1,0 +1,194 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+}
+
+.nav {
+  height: 60px;
+  background-color: #240018;
+  color: white;
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav > ul > li {
+  list-style: none;
+  //line-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 60px;
+  width: 150px;
+  position: relative;
+}
+
+#light {
+  width: 10px;
+  height: 10px;
+  background-color: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateZ(1000px);
+}
+
+/*.vertex {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, .6);
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  //height: 50px;
+  width: 100%;
+  text-align: center;
+  perspective: 500px;
+  perspective-origin: top center;
+}
+
+.list-item {
+  position: relative;
+  height: 50px;
+  width: 150px;
+  list-style: none;
+  //transition: transform 3s;
+  //transform: rotate3d(0,1,0,0deg);
+  //transform-style: preserve-3d;
+}
+
+//.list-item:hover {
+//  transform: rotate3d(0,1,0,360deg);
+//}
+
+// Create a function or something here
+
+//$top: 0;
+$zIndex: 100;
+@for $i from 1 to 10 {
+  .list-item:nth-of-type(#{$i}) .assembly {
+    //top: $top + px;
+    //left: 0;
+    z-index: $zIndex;
+  }
+  //$top: $top + 50;
+  $zIndex: $zIndex - 1;
+}
+
+.assembly {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  //margin: -25px 0 0 -75px;
+  transition: transform 3s;
+  transform: rotate3d(0,1,0,0deg);
+  transform-style: preserve-3d;
+}
+
+.assembly:hover {
+  transform: rotate3d(0,1,0,360deg);
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 80px;
+  height: 50px;
+  background-color: rgba(56, 56, 56, 1);
+  transform: translateX(-40px - 75px) translateY(-25px) rotateY(-90deg);
+  outline: 1px solid black;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 80px;
+  height: 50px;
+  background-color: rgba(56, 56, 56, 1);
+  transform: translateX(75px - 40px) translateY(-25px) rotateY(90deg);
+  outline: 1px solid black;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 150px;
+  height: 50px;
+  background-color: rgba(56, 56, 56, 1);
+  transform: translate3d(-75px, -25px, -40px) rotateY(180deg);
+  outline: 1px solid black;
+  //transition: transform 2.5s;
+  //transform: rotate3d(0,1,0,0deg);
+}
+
+.front {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 150px;
+  height: 50px;
+  background-color: rgba(56, 56, 56, 1);
+  transform: translate3d(-75px, -25px, 40px);
+  outline: 1px solid black;
+  //transition: transform 2.5s;
+  //transform: translateZ(40px) rotate3d(0,1,0,0deg);
+}
+
+//.front:hover {
+//  transform: rotate3d(0,1,0,360deg);
+//}
+
+.bottom {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 150px;
+  height: 80px;
+  background-color: rgba(56, 56, 56, 1);
+  transform: translateX(-75px) translateY(-40px + 25px) rotateX(-90deg);
+  outline: 1px solid black;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 150px;
+  height: 80px;
+  background-color: rgba(56, 56, 56, 1);
+  transform: translateX(-75px) translateY(-40px - 25px) rotateX(-90deg);
+  outline: 1px solid black;
+}
