@@ -1,7 +1,3 @@
-/**
- * Created by Vlad on 28.01.2017.
- */
-
 const GraphicObjectsProcessor = (() => {
     let gObjects = [];
     let light = null;
@@ -18,7 +14,7 @@ const GraphicObjectsProcessor = (() => {
             gObject.facesData.forEach((face) => {
                 let direction = Vect3.normalize(Vect3.sub(lightPosition, face.center));
                 let amount = 1 - Math.max(0, Vect3.dot(face.normal, direction)).toFixed(2);
-                if (face.light != amount) {
+                if (face.light !== amount) {
                     face.light = amount;
                     face.element.style.backgroundImage = "linear-gradient(rgba(0,0,0," + amount + "),rgba(0,0,0," + amount + "))";
                 }
@@ -66,7 +62,7 @@ const GraphicObjectsProcessor = (() => {
         /* Returns the rotation and translation components of an element
          ---------------------------------------------------------------- */
         getTransform(element) {
-            var matrix = this.parseMatrix(getComputedStyle(element, null).transform),
+            let matrix = this.parseMatrix(getComputedStyle(element, null).transform),
                 rotateY = Math.asin(-matrix.m13),
                 rotateX,
                 rotateZ;
@@ -87,7 +83,7 @@ const GraphicObjectsProcessor = (() => {
         /* Parses a matrix string and returns a 4x4 matrix
          ---------------------------------------------------------------- */
         parseMatrix(matrixString) {
-            var c = matrixString.split(/\s*[(),]\s*/).slice(1, -1),
+            let c = matrixString.split(/\s*[(),]\s*/).slice(1, -1),
                 matrix;
 
             if (c.length === 6) {

@@ -1,7 +1,3 @@
-/**
- * Created by Vlad on 28.01.2017.
- */
-
 class GraphicObject {
     constructor(assembly) {
         this._assembly = assembly;

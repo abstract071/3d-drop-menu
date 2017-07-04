@@ -1,10 +1,6 @@
-/**
- * Created by Vlad on 30.12.2016.
- */
-
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
+const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
+const sass        = require('gulp-sass');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass'], function() {
@@ -20,9 +16,9 @@ gulp.task('serve', ['sass'], function() {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-    return gulp.src("scss/*.scss")
+    return gulp.src("scss/**/*.scss")
         .pipe(sass())
-        .pipe(gulp.dest("./"))
+        .pipe(gulp.dest("./styles/"))
         .pipe(browserSync.stream());
 });
 
